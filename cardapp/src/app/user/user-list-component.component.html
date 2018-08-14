@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Gender </th>
+    <th> Address </th>
+  </tr>
+  <tr *ngFor = "let u of users">
+    <td> {{u.fName}} {{u.lName}} </td>
+    <td> {{u.gender}} </td>
+    <td> {{u.address.street}}, {{u.address.city}}, {{u.address.state}}, {{u.address.zip}} </td>
+  </tr>
+</table>
+
+<!-- <ul>
+  <li *ngFor = "let u of users">
+      <div class = "panel panel-default">
+          <div class = "panel header">
+            {{u.fName}} {{u.lName}}<br/>
+          </div>
+          <div class = "panel content">
+              <label> Gender: </label> {{u.gender}} <br/>
+              <label> Address: </label> {{u.address.street}}, {{u.address.city}}, {{u.address.state}}, {{u.address.zip}}
+          </div>
+        </div>
+  </li>
+</ul> -->

@@ -1,0 +1,28 @@
+#flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#fullName{
+  text-align: center;
+  font-size: 1.5em;
+  color: rgb(85, 9, 88);
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 12em;
+  margin-right: 12em;
+}
+
+div > label{
+  color: rgb(182, 88, 88);
+}
+
+div{
+  color: rgb(70, 55, 70);
+}
+
+panel{
+  background-color: floralwhite;
+}

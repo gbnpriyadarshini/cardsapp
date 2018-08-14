@@ -1,0 +1,83 @@
+<h4> Enter New Card Details </h4>
+
+<form (ngSubmit) = "addAndNavigate(cardForm)" #cardForm="ngForm">
+  
+  <div class="form-group">
+    <label for="firstName">*First Name:</label>
+    <input type="text" class="form-control"
+      required minlength="5" [(ngModel)] = "cardobj.fName" #fname = "ngModel" name="firstName">
+        <div *ngIf = "fname.touched && fname.errors?.required" class = "alert alert-danger">
+          Name is required
+        </div>
+        <div *ngIf = "fname.touched && fname.errors?.minlength" class = "alert alert-danger">
+            Name should be minimum of {{fname.errors.minlength.requiredLength}} length
+        </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastName">*Last Name:</label>
+    <input type="text" class="form-control" 
+    required minlength="2" [(ngModel)] = "cardobj.lName" nameValidator #lname = "ngModel" name="lastName">
+        <div *ngIf = "lname.touched && lname.errors?.required" class = "alert alert-danger">
+          Name is required
+        </div>
+        <div *ngIf = "lname.touched && lname.errors?.minlength" class = "alert alert-danger">
+            Name should be minimum of {{lname.errors.minlength.requiredLength}} length
+        </div>
+  </div>
+
+  <div class="form-group">
+    <label for="middleName">Middle Name:</label>
+    <input type="text" class="form-control" [(ngModel)] = "cardobj.mName" name="middleName">
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number:</label>
+    <input type="text" class="form-control" 
+      pattern = "^[0-9]{3}-[0-9]{3}-[0-9]{4}$" [(ngModel)] = "cardobj.phone" #phone = "ngModel" name="phone">
+        <div *ngIf = "phone.touched && phone.errors?.pattern" class = "alert alert-danger">
+          Phone Number Invalid. Please enter numbers.
+        </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cell">*Cell Number:  &nbsp; &nbsp; </label>
+    <span>    (Example: 000-000-0000)</span>
+    
+    <input type="text" class="form-control" required
+      pattern = "^[0-9]{3}-[0-9]{3}-[0-9]{4}$" [(ngModel)] = "cardobj.cell" #cell = "ngModel" name="cell">
+        <div *ngIf = "cell.touched && cell.errors?.required" class = "alert alert-danger">
+          Cell Number is required
+        </div>
+        <div *ngIf = "cell.touched && cell.errors?.pattern" class = "alert alert-danger">
+          Cell Number Invalid. Format xxx-xxx-xxxx
+        </div>
+  </div>
+
+  <div class="form-group">
+    <label for="fax">Fax Number:</label>
+    <input type="text" class="form-control" 
+      pattern = "^[0-9]{3}-[0-9]{3}-[0-9]{4}$" [(ngModel)] = "cardobj.fax" #fax = "ngModel" name="fax">
+        <div *ngIf = "fax.touched && fax.errors?.pattern" class = "alert alert-danger">
+          Fax Number Invalid. Please enter numbers.
+        </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">*Email address:  &nbsp; &nbsp; </label>
+    <span>(Example: john.doe@gmail.com)</span>
+    
+    <input type="email" class="form-control" 
+      required email [(ngModel)] = "cardobj.email" #aemail = "ngModel" name="email">
+        <div *ngIf = "aemail.touched && aemail.errors?.required" class = "alert alert-danger">
+          Email is required
+        </div>
+        <div *ngIf = "aemail.touched && aemail.errors?.email" class = "alert alert-danger">
+          Invalid email
+        </div>
+  </div>
+  
+  <span>* are mandatory fields.</span> <br/><br/>
+  <button type="submit" class="btn btn-primary" [disabled] = "cardForm.invalid">Submit</button>
+
+</form>

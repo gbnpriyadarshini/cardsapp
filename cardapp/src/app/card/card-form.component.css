@@ -1,0 +1,26 @@
+h4{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form{
+    margin-left: 12em;
+    margin-right: 12em;
+}
+
+input.ng-invalid{
+    border-color: red;
+}
+
+input.ng-valid{
+    border-color: green;
+}
+
+span{
+    color:gray;
+}
+
+button{
+    float: center;
+}

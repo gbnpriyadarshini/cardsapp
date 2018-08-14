@@ -1,0 +1,14 @@
+.low{
+    color : red;
+    font-size: 1.25em;
+}
+
+.medium{
+    color : orange;
+    font-size: 1.25em;
+}
+
+.high{
+    color : green;
+    font-size: 1.25em;
+}

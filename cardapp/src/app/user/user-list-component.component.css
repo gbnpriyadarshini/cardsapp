@@ -1,0 +1,44 @@
+ul{
+    list-style-type: none;
+    margin-left: 12em;
+    margin-right: 12em;
+}
+
+.header{
+    text-align: center;
+    font-size: 1.5em;
+    color: rgb(85, 9, 88);
+}
+
+label{
+    color: rgb(182, 88, 88);
+}
+
+div{
+    color: rgb(70, 55, 70);
+}
+
+table{
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+th{
+    color: rgb(182, 88, 88);
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+td{
+    color: rgb(70, 55, 70);
+    text-align: center;
+    font-size: 1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}

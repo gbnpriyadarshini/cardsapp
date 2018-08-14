@@ -1,0 +1,37 @@
+<ul>
+  <li *ngFor="let c of cards">
+     <div class = "panel panel-default">
+
+        <div class = "panel heading" id = "flex-container">
+          <div>
+            <b id = "fullName"> <label> Full Name: </label>
+              <a (click) = "toDetailComponent(c.id)"> {{c.fName}}  {{c.lName}} </a> 
+            </b>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-link" (click) = "editToForm(c.id)">EDIT</button>
+          </div>
+        </div>
+
+        <div class = "panel content" id = "flex-container">
+          <div>
+            <label> Id: </label><b> {{c.id}} </b>  <br/>
+            <label> Phone: </label> {{c.phone}}  <br/>
+            <label> Cell: </label> {{c.cell}} <br/>
+            <label> Fax: </label> {{c.fax}} <br/>
+            <label> Email: </label> {{c.email}}  <br/>
+            <label> Total Vote: </label> {{c.voteCount}} <br/>
+            
+            <label> Rating: </label>
+              <span *ngIf = "c.voteCount >= 50" style="color:green;">  HIGH </span> 
+              <span *ngIf = "c.voteCount >= 25 && c.voteCount < 50 " style="color:orange;">  MEDIUM </span> 
+              <span *ngIf = "c.voteCount < 25 " style="color:red;">  LOW </span>
+          </div>  
+          <div>
+            <app-vote [voteCount] = "c.voteCount" (voteChanged)="c.voteCount=$event"></app-vote>
+          </div>
+        </div>
+      
+    </div><br/>
+  </li>
+</ul>

@@ -1,0 +1,91 @@
+<h4> Enter User Details </h4>
+
+<form (ngSubmit) = "handleSubmit()" [formGroup] = "uForm">
+  <table>
+    <div class="form-group"> 
+      <th> <label for="fName">*First Name: </label></th>
+      <td> <input type="fName" size="70" class="form-control" id="fName" formControlName="fName"> </td>
+        <div class = "alert alert-danger" *ngIf = "fName.touched && fName.errors?.required">
+          First Name is required
+        </div>
+        <div class = "alert alert-danger" *ngIf = "fName.touched && fName.errors?.minlength">
+          First Name should be of {{fName.errors?.minlength.requiredLength}} length
+        </div>
+    </div>
+  </table>
+
+  <table>
+    <div class="form-group">
+      <th> <label for="lName">*Last Name: </label> </th>
+      <td><input type="lName" size="70" class="form-control" id="lName" formControlName="lName"></td>
+        <div class = "alert alert-danger" *ngIf = "lName.touched && lName.errors?.required">
+          Last Name is required
+        </div>
+        <div class = "alert alert-danger" *ngIf = "lName.touched && lName.errors?.minlength">
+          Last Name should be of {{lName.errors?.minlength.requiredLength}} length
+        </div>
+    </div>
+  </table>
+
+  <table>
+    <div class="form-group">
+      <th> <label for="username">*Username: </label> </th>
+      <td><input type="username" size="70" class="form-control" id="username" formControlName="username"></td>
+          <div class = "alert alert-danger" *ngIf = "username.touched && username.errors?.required">
+            User Name is required
+          </div>
+          <div class = "alert alert-danger" *ngIf = "username.touched && username.errors?.minlength">
+            User Name should be of {{username.errors?.minlength.requiredLength}} length
+          </div> 
+    </div>
+  </table>
+
+  <table>
+    <div class="form-group">
+      <th> <label for="password">*Password: </label> </th>
+      <td><input type="password" size="70" class="form-control" id="password" formControlName="password"></td>
+          <div class = "alert alert-danger" *ngIf = "password.touched && password.errors?.required">
+            Password is required
+          </div>
+          <div class = "alert alert-danger" *ngIf = "password.touched && password.errors?.pattern">
+            Password should contain atleast one capital letter, one small letter, one number and one special character.
+            Length should be atleast 8 characters.
+          </div>
+    </div>
+  </table>
+
+  <div class="radio">
+      <b> *Gender: </b> &nbsp; &nbsp; &nbsp; &nbsp;
+      <label *ngFor="let g of genders">
+        <input type="radio" name="gender" [value]="g" formControlName="gender"> 
+        {{g}}  &nbsp; 
+      </label> 
+  </div>
+
+  <div formGroupName="address">
+      <b> <label for="address">Address: </label> </b> <br/>
+        <table>
+          <tr>
+            <td> <label for="street">Street: </label> </td>
+            <td> <input type="text" size="70" class="form-control" id="street" formControlName="street"> </td>
+          </tr>
+          <tr>
+            <td> <label for="city">City: </label> </td>
+            <td> <input type="text" size="70" class="form-control" id="city" formControlName="city"> </td>
+           </tr>
+          <tr>
+            <td> <label for="state">State: </label> </td>
+            <td> <input type="text" size="70" class="form-control" id="state" formControlName="state"> </td>
+          </tr>
+          <tr>
+            <td> <label class="col-2 col-form-label" for="zip">Zip: </label> </td>
+            <td> <input type="text" size="70" class="form-control" id="zip" formControlName="zip"> </td>
+          </tr>
+        </table> 
+  </div>
+  <br/>
+
+  <span>* are mandatory fields.</span> <br/><br/>
+  <button type="submit" class="btn btn-primary" [disabled] = "uForm.invalid">Submit</button>
+
+</form>

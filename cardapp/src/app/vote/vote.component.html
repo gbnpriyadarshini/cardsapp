@@ -1,0 +1,8 @@
+<i class="glyphicon glyphicon-menu-up" (click) = "handleClickUp($event)">  </i> <br/>
+
+<span [ngClass] = "{'low' : voteCount < 25, 'medium' : voteCount >= 25 && voteCount < 50, 'high' : voteCount >= 50}">
+    <b> {{voteCount}} </b>
+</span> <br/>
+
+<!-- <div [ngStyle] = "{'color': voteCount >= 30 ? 'green' : 'red'}">{{voteCount}}</div> -->
+<i class="glyphicon glyphicon-menu-down" (click) = "handleClickDown($event)"> </i> <br/>
